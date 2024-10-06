@@ -1,0 +1,14 @@
+[Unit]
+Description=My Python Service
+After=network.target  # Adjust as needed
+
+[Service]
+ExecStart=/usr/bin/python3 /home/user/my_script.py  # Path to Python and your script
+WorkingDirectory=/home/user  # Working directory for the script
+StandardOutput=journal  # Output logs to journal
+StandardError=journal  # Error logs to journal
+Restart=on-failure  # Restart the service on failure
+User=user  # Replace with the username to run the service
+
+[Install]
+WantedBy=multi-user.target
