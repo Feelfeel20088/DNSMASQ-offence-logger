@@ -1,14 +1,12 @@
 [Unit]
-Description=My Python Service
-After=network.target  # Adjust as needed
+Description=dnsmasq-logger service
 
 [Service]
-ExecStart=/usr/bin/python3 /home/user/my_script.py  # Path to Python and your script
-WorkingDirectory=/home/user  # Working directory for the script
-StandardOutput=journal  # Output logs to journal
-StandardError=journal  # Error logs to journal
-Restart=on-failure  # Restart the service on failure
-User=user  # Replace with the username to run the service
+Type=oneshot  # Set service type to oneshot
+ExecStart=/usr/bin/python3 /path/to/the/script/main.py # Path to Python and the script
+WorkingDirectory= /path/to/the/script
+
+User=root  # Use root to run the service with elevated privileges
 
 [Install]
 WantedBy=multi-user.target
