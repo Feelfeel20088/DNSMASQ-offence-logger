@@ -66,7 +66,8 @@ class log:
 
 test = log(dnsmasq_log_file = '/var/log/dnsmasq.log', tattle_file = './tattle_list') # replace with your log file location
 body: str = test.parse_logfile()
-test.sendresults(host_email = 'workerSMTP@outlook.com', password = 'kZK7rKNHMa3ZyfB', body = body)
+#TODO: will make more dynamic.
+test.sendresults(host_email = 'ur email', password = 'ur password', body = body)
 # clear file
 with open(test.dnsmasq_log_file, "w") as file:
     pass
